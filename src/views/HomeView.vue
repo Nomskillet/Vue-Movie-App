@@ -66,17 +66,18 @@ export default {
 </script>
 
 <style lang="scss">
-
 .home {
+  padding: 16px;
+
   .feature-card {
     position: relative;
+    margin-bottom: 24px;
 
-    .feature-img {
+    .featured-image {
       display: block;
       width: 100%;
-      height: 300px;
+      height: auto;
       object-fit: cover;
-
       position: relative;
       z-index: 0;
     }
@@ -86,8 +87,8 @@ export default {
       left: 0;
       right: 0;
       bottom: 0;
-      background-color: 0, 0, 0, 0.6;
-      padding: 0;
+      background-color: rgba(0, 0, 0, 0.6);
+      padding: 16px;
       z-index: 1;
 
       h3 {
@@ -95,12 +96,11 @@ export default {
         margin-bottom: 16px;
       }
 
-      p{
+      p {
         color: #fff;
       }
     }
   }
-
 
   .search-box {
     display: flex;
@@ -109,7 +109,7 @@ export default {
     align-items: center;
     padding: 16px;
 
-    input{ 
+    input {
       display: block;
       appearance: none;
       border: none;
@@ -131,7 +131,7 @@ export default {
         }
 
         &:focus {
-          box-shadow: 0px 3px 6px rgba(0,0,0,0.2);
+          box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.2);
         }
       }
 
@@ -152,20 +152,21 @@ export default {
       }
     }
   }
-        .movies-list {
+
+  .movies-list {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0px -8px;
+
+    .movie {
+      width: 100%;
+      flex: 1 1 100%;
+      padding: 16px 8px;
+
+      .movie-link {
         display: flex;
-        flex-wrap: wrap;
-        margin: 0px 8px;
-
-        .movie {
-          max-width: 50%;
-          flex: 1 1 50%;
-          padding: 16px 8px;
-
-          .movie-link {
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+        flex-direction: column;
+        height: 100%;
 
         .product-image {
           position: relative;
@@ -174,15 +175,15 @@ export default {
           img {
             display: block;
             width: 100%;
-            height: 275px;
+            height: auto;
             object-fit: cover;
           }
 
           .type {
             position: absolute;
             padding: 8px 16px;
-            background-color: #42B883;
-            color: #FFF;
+            background-color: #42b883;
+            color: #fff;
             bottom: 16px;
             left: 0px;
             text-transform: capitalize;
@@ -196,12 +197,12 @@ export default {
           border-radius: 0px 0px 8px 8px;
 
           .year {
-            color: #AAA;
+            color: #aaa;
             font-size: 14px;
           }
 
           h3 {
-            color: #FFF;
+            color: #fff;
             font-weight: 600;
             font-size: 18px;
           }
@@ -211,6 +212,17 @@ export default {
   }
 }
 
+@media (min-width: 600px) {
+  .home .movies-list .movie {
+    width: 50%;
+    flex: 1 1 50%;
+  }
+}
 
-
+@media (min-width: 900px) {
+  .home .movies-list .movie {
+    width: 33.33%;
+    flex: 1 1 33.33%;
+  }
+}
 </style>
